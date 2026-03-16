@@ -6,7 +6,7 @@ import {
   Semester,
   EnrollmentId,
   createStudentId,
-  createCourseId,
+  createCourseCode,
   createEmail,
   createCredits,
   createSemester,
@@ -32,7 +32,7 @@ export class Course {
     ) {}
 
     static create(props: CourseProps): Course | Error {
-    const code = createCourseId(props.code);
+    const code = createCourseCode(props.code);
     if (code instanceof Error) return code;
  
     if (!props.name.trim()) {
@@ -206,7 +206,7 @@ export class Enrollment {
     const studentId = createStudentId(props.studentId);
     if (studentId instanceof Error) return studentId;
  
-    const courseCode = createCourseId(props.courseCode);
+    const courseCode = createCourseCode(props.courseCode);
     if (courseCode instanceof Error) return courseCode;
  
     const semester = createSemester(props.semester);

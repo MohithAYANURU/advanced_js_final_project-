@@ -1,5 +1,7 @@
 // 6 branded types with smart constructors (return `Type | Error`)
 
+import { v4 as uuidv4 } from "uuid";
+
 type Brand<K, T> = K & { __brand: T };
 
 export type StudentId=Brand<string, 'StudentID'>;
@@ -77,7 +79,7 @@ export function createEnrollmentId(value: string): EnrollmentId | Error {
 
 let _counter = 0;
 export function generateEnrollmentId(): EnrollmentId {
-    const id = `ENR-${Date.now()}-${_counter++}`;   
+    const id = `ENR${uuidv4().replace(/-/g, '').substring(0, 6).toUpperCase()}`;   
     return id as EnrollmentId;
 }
 
