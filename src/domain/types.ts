@@ -21,7 +21,7 @@ export function createStudentId(value: string): StudentId | Error {
 
 
 
-export function createCourseId(value: string): CourseCode | Error {
+export function createCourseCode(value: string): CourseCode | Error {
     if (/^[A-Z]{2,4}\d{3}$/.test(value)) {
     return value as CourseCode;
   }
@@ -42,7 +42,7 @@ export function createEmail(value: string): Email | Error {
 
 
 
-const VALID_CREDITS = [1, 2, 3, 4, 5, 6] as const;
+const VALID_CREDITS = [1, 2, 3, 4, 6] as const;
 type ValidCredits = typeof VALID_CREDITS[number];
 
 export function createCredits(value: number): Credits | Error {   
@@ -56,7 +56,7 @@ export function createCredits(value: number): Credits | Error {
 
 
 export function createSemester(value: string): Semester | Error {
-    if (/^(Fall|Spring| Summer) \d{4}$/.test(value)) {
+    if (/^(Fall|Spring|Summer) \d{4}$/.test(value)) {
         return value as Semester;
     }
     return new Error(
