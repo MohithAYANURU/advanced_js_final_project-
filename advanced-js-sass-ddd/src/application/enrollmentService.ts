@@ -1,5 +1,5 @@
 import { Student, Course, Enrollment } from '../domain/entities';
-import { StudentId, CourseCode, Semester, EnrollmentId, createStudentId, createCourseCode, createEmail, createCredits, createSemester, generateEnrollmentId } from '../domain/types';
+import { createStudentId, createEmail, createSemester } from '../domain/types';
 import { EventEmitter } from '../infrastructure/observer';
 import { StudentEnrolled, EnrollmentCancelled, CourseCapacityReached, CourseFull } from '../infrastructure/events';
 

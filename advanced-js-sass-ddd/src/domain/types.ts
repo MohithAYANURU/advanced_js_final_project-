@@ -76,8 +76,6 @@ export function createEnrollmentId(value: string): EnrollmentId | Error {
     );
 }
 
-
-let _counter = 0;
 export function generateEnrollmentId(): EnrollmentId {
     const id = `ENR${uuidv4().replace(/-/g, '').substring(0, 6).toUpperCase()}`;   
     return id as EnrollmentId;
